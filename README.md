@@ -1,2 +1,2 @@
 # LearningGo
-GO Course
+GO Specialization Course
