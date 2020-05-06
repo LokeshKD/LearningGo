@@ -16,9 +16,9 @@ type Animal interface {
 	Speak()
 }
 
-type Cow struct {name, food, locomotion, noise string}
-type Bird struct {name, food, locomotion, noise string}
-type Snake struct {name, food, locomotion, noise string}
+type Cow struct{ name, food, locomotion, noise string }
+type Bird struct{ name, food, locomotion, noise string }
+type Snake struct{ name, food, locomotion, noise string }
 
 func MakeCow(name string) *Cow {
 	cow := Cow{name, "grass", "walk", "moo"}
@@ -33,25 +33,24 @@ func MakeSnake(name string) *Snake {
 	return &snake
 }
 
-func (a *Cow) Eat() { fmt.Printf("%s Eats %s\n",a.name, a.food) }
-func (a *Cow) Move() { fmt.Printf("%s moves by %s\n",a.name, a.locomotion) }
-func (a *Cow) Speak() { fmt.Printf("%s says %s\n",a.name, a.noise) }
+func (a *Cow) Eat()   { fmt.Printf("%s Eats %s\n", a.name, a.food) }
+func (a *Cow) Move()  { fmt.Printf("%s moves by %s\n", a.name, a.locomotion) }
+func (a *Cow) Speak() { fmt.Printf("%s says %s\n", a.name, a.noise) }
 
-func (a *Bird) Eat() { fmt.Printf("%s Eats %s\n",a.name, a.food) }
-func (a *Bird) Move() { fmt.Printf("%s moves by %s\n",a.name, a.locomotion) }
-func (a *Bird) Speak() { fmt.Printf("%s says %s\n",a.name, a.noise) }
+func (a *Bird) Eat()   { fmt.Printf("%s Eats %s\n", a.name, a.food) }
+func (a *Bird) Move()  { fmt.Printf("%s moves by %s\n", a.name, a.locomotion) }
+func (a *Bird) Speak() { fmt.Printf("%s says %s\n", a.name, a.noise) }
 
-func (a *Snake) Eat() { fmt.Printf("%s Eats %s\n",a.name, a.food) }
-func (a *Snake) Move() { fmt.Printf("%s moves by %s\n",a.name, a.locomotion) }
-func (a *Snake) Speak() { fmt.Printf("%s says %s\n",a.name, a.noise) }
+func (a *Snake) Eat()   { fmt.Printf("%s Eats %s\n", a.name, a.food) }
+func (a *Snake) Move()  { fmt.Printf("%s moves by %s\n", a.name, a.locomotion) }
+func (a *Snake) Speak() { fmt.Printf("%s says %s\n", a.name, a.noise) }
 
 // Maps to store all the typed animals with their name as key.
 var cows map[string]*Cow
 var birds map[string]*Bird
 var snakes map[string]*Snake
 
-
-func main () {
+func main() {
 
 	cows = make(map[string]*Cow)
 	birds = make(map[string]*Bird)
@@ -126,11 +125,13 @@ func NewQuery(words []string) {
 func ProcessQuery(animal Animal, act string) {
 
 	switch act {
-	case "eat": animal.Eat()
-	case "move": animal.Move()
-	case "speak": animal.Speak()
+	case "eat":
+		animal.Eat()
+	case "move":
+		animal.Move()
+	case "speak":
+		animal.Speak()
 	default:
 		fmt.Printf("Unknown Feature requested %s\n", act)
 	}
 }
-
